@@ -23,10 +23,10 @@ public class Main
         }
         if(flag==0)
         {
-            System.out.println("Anagram");
+            System.out.println("Pangram");
         }
         else {
-            System.out.println("Not a Anagram");
+            System.out.println("Not a Pangram");
         }
 }
 }
