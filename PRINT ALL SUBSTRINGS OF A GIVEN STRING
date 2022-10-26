@@ -1,0 +1,28 @@
+/******************************************************************************
+
+               PRINT ALL SUBSTRINGS OF A GIVEN STRING
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner scan=new Scanner(System.in);
+	    System.out.println("Enter any word");
+		String s=scan.next();
+	    for(int i=1;i<=s.length();i++)
+	    {
+	        for(int j=0;j<=s.length()-1;j++)
+	        {
+	            if(j+i>s.length())
+	            {
+	                break;
+	            }
+	            else
+	            System.out.println(s.substring(j,j+i));
+	            
+	        }
+	    }
+		
+	}
+}
