@@ -1,0 +1,73 @@
+import java.util.*;
+class InvalidUserException extends Exception
+{
+    public String getMessage()
+    {
+        return "Invalid Inputs!! Try Again";
+    }
+      
+}
+class ATM
+{
+    private int accont_number=3333;
+    private int password=9999;
+    int ac;
+    int pwd;
+    public void acceptInput()
+    {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Enter the Account Number");
+        ac=scan.nextInt();
+        System.out.println("Enter the Password");
+        pwd=scan.nextInt();
+    }
+    public void verify() throws InvalidUserException
+    {
+        if(ac==accont_number&&pwd==password)
+        {
+            System.out.println("Please, Collect your cash");
+        }
+        else
+        {
+            InvalidUserException iuc=new InvalidUserException();
+            System.out.println(iuc.getMessage());
+            throw iuc;
+        }
+    }
+}
+class Bank
+{
+    public void initiate()
+    {
+        ATM atm=new ATM();
+        try 
+        {
+             atm.acceptInput();
+             atm.verify();
+        } 
+        catch(Exception e) 
+        {
+            try {
+                atm.acceptInput();
+             atm.verify();
+                
+            } catch(Exception f) {
+                try {
+                    atm.acceptInput();
+                    atm.verify();
+                } catch(Exception g) {
+                    System.out.println("Card is Blocked!! Visit to bank to resolve this issue");
+                }
+            }
+        }
+       
+    }
+}
+class Main
+{
+    public static void main(String[] args)
+    {
+        Bank b=new Bank();
+        b.initiate();
+    }
+}
