@@ -1,0 +1,72 @@
+import java.util.*;
+class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Enter the Size of an array");
+        int[] a=new int[scan.nextInt()];
+        System.out.println("Enter the Elements in the 1st array");
+        for(int i=0;i<=a.length-1;i++)
+        {
+            a[i]=scan.nextInt();
+        }
+        System.out.println("Enter the size of the Second array");
+         int[] b=new int[scan.nextInt()];
+        System.out.println("Enter the Elements in the 2nd array");
+        for(int i=0;i<=b.length-1;i++)
+        {
+            b[i]=scan.nextInt();
+        }
+        
+        ArrayList<Integer> union=new ArrayList<Integer>();
+        
+        for(int i=0;i<=a.length-1;i++)      //=================================== 
+        {
+            union.add(a[i]);
+        }
+        
+        for(int i=0;i<=b.length-1;i++)
+        {
+            int count=0;
+            for(int j=0;j<=a.length-1;j++)      // Code for union elements of 
+            {                                   //       both the arrays
+                if(b[i]==a[j])                          
+                count++;
+            }
+            
+            if(count==0)
+            {
+                union.add(b[i]);
+            }
+           
+        }
+        
+        for(Integer elem:union)
+        {
+            System.out.print(elem+"  ");
+        }                                   //=========================================
+        
+        System.out.println();
+        System.out.println();
+        
+        ArrayList<Integer> same=new ArrayList<Integer>();
+        
+        for(int i=0;i<=b.length-1;i++)
+        {
+            
+            for(int j=0;j<=a.length-1;j++)      // Code for same elements of 
+            {                                   //       both the arrays
+                if(b[i]==a[j])                          
+                same.add(b[i]);
+            }
+           
+        }
+        
+        for(Integer elem:same)
+        {
+            System.out.print(elem+"  ");
+        }         
+        
+    }
+}
