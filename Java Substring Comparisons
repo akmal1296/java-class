@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+         Scanner scan=new Scanner(System.in);
+        String s=scan.next();
+        int k=scan.nextInt();
+        String s1=s.substring(0,k);
+        String s2=s.substring((s.length())-k);
+        for(int i=0;i+k<=s.length();i++)
+        {
+            String temp=s.substring(i,i+k);
+            
+            int val=s1.compareTo(temp);
+            if(val<0)
+            {
+                s1=temp;
+            }
+            int val2=s2.compareTo(temp);
+            if(val2>0)
+            {
+                s2=temp;
+            }
+        
+            
+        }
+        System.out.println(s2+"\n"+s1);
+    }
+}
